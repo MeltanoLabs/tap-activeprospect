@@ -1,0 +1,44 @@
+send_anonymous_usage_stats: true
+project_id: tap-activeprospect
+default_environment: test
+requires_meltano: '>=4.0'
+environments:
+- name: test
+plugins:
+  extractors:
+  - name: tap-activeprospect
+    namespace: tap_activeprospect
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
+    - structured-logging
+
+    settings_group_validation:
+    - [api_key]
+
+    settings:
+    - name: api_key
+      kind: string
+      label: API Key
+      description: The ActiveProspect API Key (used as the Basic Auth password; username is ignored)
+      sensitive: true
+
+    - name: start_date
+      kind: date_iso8601
+      label: Start Date
+      description: The earliest record date to sync
+
+    config:
+      start_date: 6 months ago
+
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+  - name: target-duckdb
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/target-duckdb.git
