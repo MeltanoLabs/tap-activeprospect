@@ -47,7 +47,7 @@ dev = [
     { include-group = "test" },
 ]
 test = [
-    "pytest>=9",
+    "pytest>=9.0.3",
     "pytest-github-actions-annotate-failures>=0.4",
     "singer-sdk[testing]",
 ]
