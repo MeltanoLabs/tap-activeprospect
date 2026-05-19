@@ -1714,8 +1714,8 @@ test = [
     { name = "singer-sdk", extras = ["testing"] },
 ]
 typing = [
-    { name = "mypy", specifier = ">=1.19.1" },
-    { name = "ty", specifier = ">=0.0.18" },
+    { name = "mypy", specifier = ">=2.1.0" },
+    { name = "ty", specifier = ">=0.0.37" },
 ]
 
 [[package]]
