@@ -110,8 +110,8 @@ convention = "google"
 # This configuration can be used to customize tox environments
 [tool.tox]
 requires = [
-    "tox>=4.43",
-    "tox-uv",
+    "tox>=4.55",
+    "tox-uv>=1.35",
 ]
 env_list = [
     "typing",
